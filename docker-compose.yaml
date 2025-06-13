@@ -1,0 +1,50 @@
+version: '3'
+services:
+
+  # test airflow service with SQLite backend to make it MVP (not for production)
+  airflow:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.airflow
+    container_name: airflow
+    ports:
+      - 8100:8080
+    volumes:
+      - airflowdata:/tmp/airflow/artifacts/
+      - ./dags:/opt/airflow/dags
+    networks:
+      - etl_network
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__WEBSERVER__AUTHENTICATE=True
+      - _AIRFLOW_WWW_USER_USERNAME=airflow
+      - _AIRFLOW_WWW_USER_PASSWORD=airflow
+    command: standalone
+
+  postgresql:
+    image: postgres:10.5
+    container_name: postgresql
+    expose:
+      - "5432"
+    hostname: postgresql
+    shm_size: 256mb
+    volumes:
+      - ./dbs:/var/lib/postgresql/data
+    networks:
+      - etl_network
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+networks:
+  etl_network:
+    driver: bridge
+
+volumes:
+    airflowdata:
+        driver: local
+    pg_data:

@@ -1,0 +1,57 @@
+[0m10:25:17.116344 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac9a73e4950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac9a7764770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac9a7767170>]}
+
+
+============================== 10:25:17.119143 | c9230d0a-1fb6-4d6c-aaec-f005c95341c9 ==============================
+[0m10:25:17.119143 [info ] [MainThread]: Running with dbt=1.7.19
+[0m10:25:17.119579 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/home/c-enjalbert/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt init dbt_get_fit_now', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m10:25:17.119956 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': PosixPath('/home/c-enjalbert/.dbt')}
+[0m10:25:17.120250 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m10:25:17.121204 [debug] [MainThread]: Starter project path: /home/c-enjalbert/miniconda3/lib/python3.12/site-packages/dbt/include/starter_project
+[0m10:25:17.123728 [info ] [MainThread]: 
+Your new dbt project "dbt_get_fit_now" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m10:25:17.124206 [info ] [MainThread]: Setting up your profile.
+[0m10:25:19.393491 [error] [MainThread]: Encountered an error:
+
+[0m10:25:19.396035 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/dbt/cli/requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/dbt/cli/requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/dbt/cli/main.py", line 516, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/dbt/task/init.py", line 344, in run
+    self.setup_profile(profile_name)
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/dbt/task/init.py", line 263, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/dbt/task/init.py", line 244, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/click/termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/c-enjalbert/miniconda3/lib/python3.12/site-packages/click/termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m10:25:19.397272 [debug] [MainThread]: Resource report: {"command_name": "init", "command_wall_clock_time": 2.3241277, "process_user_time": 1.41082, "process_kernel_time": 0.107062, "process_mem_max_rss": "103368", "process_out_blocks": "72", "command_success": false, "process_in_blocks": "0"}
+[0m10:25:19.397739 [debug] [MainThread]: Command `dbt init` failed at 10:25:19.397629 after 2.32 seconds
+[0m10:25:19.398090 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac9a7649280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac9a73e4470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac9a76b8170>]}
+[0m10:25:19.398452 [debug] [MainThread]: Flushing usage events

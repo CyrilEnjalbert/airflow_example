@@ -1,0 +1,16 @@
+{
+    "enable_extraction": true,
+    "extraction": {
+      "source_url": "https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs",
+      "output_folder": "/opt/airflow/data/"
+    },
+    "loading": {
+      "input_file": "/opt/airflow/data/apache_logs.txt",
+      "output_file": "/opt/airflow/data/apache_logs.csv"
+    },
+    "processing": {
+      "input_file": "/opt/airflow/data/apache_logs.csv",
+      "output_file": "/opt/airflow/data/enriched_apache_logs.csv",
+      "batch_size": 100
+    }
+}
